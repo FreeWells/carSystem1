@@ -85,4 +85,13 @@ public class CarController {
         carService.insertCar(car);
         return JSONResult.ok();
     }
+
+    /*
+    *  购买车辆
+    * */
+    @PostMapping("buyCar")
+    public JSONResult bugCar(Car car) {
+        boolean success = carService.buyCar(car);
+        return JSONResult.ok(success);
+    }
 }

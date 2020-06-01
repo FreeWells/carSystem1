@@ -43,4 +43,16 @@ public class CarServiceImpl implements CarService {
     public void insertCar(Car car) {
         carDao.insertCar(car);
     }
+
+    @Override
+    public boolean buyCar(Car car) {
+        List<Car> list = carDao.findByCar(car);
+        if (list.size() > 0) {
+            carDao.deleteById(list.get(0).getId());
+            return true;
+        }else {
+            return false;
+        }
+    }
+
 }
