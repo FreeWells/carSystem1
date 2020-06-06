@@ -94,4 +94,14 @@ public class CarController {
         boolean success = carService.buyCar(car);
         return JSONResult.ok(success);
     }
+
+    /*
+    * 根据车的Name 模糊查询
+    * */
+
+    @GetMapping("findByCarBrand")
+    public JSONResult findByCarBrand(String carName,int currentPage,int pageSize) {
+        List<Car> cars = carService.findByCarBrand(carName,currentPage,pageSize);
+        return JSONResult.ok(cars);
+    }
 }

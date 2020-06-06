@@ -21,4 +21,6 @@ public interface CarService {
 
     boolean buyCar(Car car);
 
+    List<Car> findByCarBrand(String brand,int currentPage,int pageSize);
+
 }

@@ -28,4 +28,9 @@ public interface CarDao {
 
     @Select("select * from carMessage where carName = #{carName} and carType=#{carType} and carSeries=#{carSeries}")
     List<Car> findByCar(Car car);
+
+    @Select("select * from carMessage where carName like CONCAT(#{brand},'%' ) limit #{currentPage} ,#{pageSize}")
+    List<Car> findByCarBrand(String brand,int currentPage,int pageSize);
+
+
 }

@@ -55,4 +55,15 @@ public class CarServiceImpl implements CarService {
         }
     }
 
+    @Override
+    public List<Car> findByCarBrand(String brand,int currentPage,int pageSize) {
+        String firstName = brand.substring(0,1);
+        if (null != firstName) {
+            List<Car> list = carDao.findByCarBrand(brand,currentPage,pageSize);
+            return list;
+        } else {
+            return null;
+        }
+    }
+
 }
